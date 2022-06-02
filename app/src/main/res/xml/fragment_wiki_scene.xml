@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/web"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/constraint_web_height"
+            app:layout_constraintStart_toEndOf="@+id/wiki_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/slide_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/end_slide_button_margin_bottom"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/web"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/web"
+            app:layout_constraintStart_toStartOf="@id/slide_button"
+            android:layout_marginStart="@dimen/end_input_layout_margin_start" />
+        <Constraint
+            android:id="@+id/web"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="@dimen/end_web_layout_width"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/slide_button" />
+
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="@integer/duration">
+        <OnClick app:targetId="@+id/wiki_button" />
+    </Transition>
+
+
+    <Transition
+        app:constraintSetStart="@+id/end"
+        app:constraintSetEnd="@+id/start"
+        app:duration="@integer/duration">
+        <OnClick app:targetId="@+id/slide_button" />
+    </Transition>
+
+</MotionScene>

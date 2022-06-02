@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Material_3</string>
+    <string name="api">API</string>
+    <string name="wiki">Wiki</string>
+    <string name="hint_search_text">Найти в Википедии</string>
+    <string name="search_in_wiki">Найти в Википедии</string>
+</resources>
